@@ -1,0 +1,135 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Soup",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include":"#comments_inline"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#paren-expression"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.soup",
+				"match": "\\b(Soup|soup|if|while|for|return)\\b"
+			},
+			{
+				"name":"keyword.other",
+				"match": "\\b(def|mal)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.soup",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.soup",
+					"match": "\\\\."
+				}
+			]
+		},
+		"paren-expression": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+			  "0": { "name": "punctuation.paren.open" }
+			},
+			"endCaptures": {
+			  "0": { "name": "punctuation.paren.close" }
+			},
+			"name": "expression.group",
+			"patterns": [{ "include": "#expression" }]
+		},
+		"comments": {
+			"name": "comment.block",
+			"begin": "-\\?",
+			"end": "\\?-",
+			"captures": {
+				"0": {
+				"name": "punctuation.definition.comment"
+				}
+			},
+			"contentName": "comment"
+		},
+		"functions": {
+			  "patterns": [
+				{
+					"name": "support.function",
+					"match": "\\b([^0-9=+-_~`!@#$%&*()\"']|[a-zA-Z])+[a-zA-Z0-9_]+[(]"
+				},
+				{
+					"name": "variable",
+					"match": "\\b([^0-9=+-_~`!@#$%&*()\"']|[a-zA-Z])+[a-zA-Z0-9_]*\\b"
+				}
+			  ]
+		},
+		"comments_inline": {
+			"patterns": [
+				{
+				  "name": "comment.line",
+				  "match": "\\?\\?.*",
+				  "captures": {
+					"0": {
+					  "name": "punctuation.definition.comment"
+					}
+				  }
+				}
+			]			
+		},
+		"operators":{
+			"patterns": [
+				{
+				  "name": "keyword.operator.arithmetic",
+				  "match": "[+\\-*/%]"
+				},
+				{
+				  "name": "keyword.operator.comparison",
+				  "match": "[!=]==?|[<>]=?"
+				},
+				{
+				  "name": "keyword.operator.logical",
+				  "match": "[!&|]"
+				}
+			  ]
+		},
+		"numbers": {
+			"patterns": [
+				{
+				  "name": "constant.numeric.integer",
+				  "match": "\\b\\d+\\b"
+				},
+				{
+				  "name": "constant.numeric.decimal",
+				  "match": "\\b\\d+\\.\\d+\\b"
+				},
+				{
+				  "name": "constant.numeric.scientific",
+				  "match": "\\b\\d+\\.?\\d*[+-]?\\d+\\b"
+				}
+			  ]
+		}
+		
+	},
+	"scopeName": "source.soup"
+}

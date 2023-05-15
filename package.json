@@ -1,0 +1,25 @@
+{
+  "name": "soup-syntax-highlighting",
+  "displayName": "Soup Syntax Highlighting",
+  "description": "It Highlights sytax for the Soup Programming Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "soup",
+      "aliases": ["Soup", "soup"],
+      "extensions": [".soup"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "soup",
+      "scopeName": "source.soup",
+      "path": "./syntaxes/soup.tmLanguage.json"
+    }]
+  }
+}
