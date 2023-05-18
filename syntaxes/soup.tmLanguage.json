@@ -40,26 +40,8 @@
 		},
 		"strings": {
 			"name": "string.quoted.double.soup",
-			"begin": "`",
-			"end": "`",
-			"patterns": [
-				{
-					"include": "#strings_single"
-				},
-				{
-					"include": "#strings_double"
-				}
-			]
-		},
-		"strings_single": {
-			"name": "string.quoted.double.soup",
-			"begin": "'",
-			"end": "'"
-		},
-		"strings_double": {
-			"name": "string.quoted.double.soup",
-			"begin": "\"",
-			"end": "\""
+			"begin": "(`|\"|')",
+			"end": "(`|\"|')"
 		},
 		"paren-expression": {
 			"begin": "\\(",
