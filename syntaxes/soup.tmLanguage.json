@@ -24,6 +24,12 @@
 			"include": "#strings"
 		},
 		{
+			"include": "#strings_single"
+		},
+		{
+			"include": "#strings_double"
+		},
+		{
 			"include": "#paren-expression"
 		}
 	],
@@ -39,9 +45,19 @@
 			}]
 		},
 		"strings": {
-			"name": "string.quoted.double.soup",
-			"begin": "(`|\"|')",
-			"end": "(`|\"|')"
+			"name": "string.quoted.other",
+			"begin": "(`)",
+			"end": "(`)"
+		},
+		"strings_single": {
+			"name": "string.quoted.single",
+			"begin": "(')",
+			"end": "(')"
+		},
+		"strings_double": {
+			"name": "string.quoted.double",
+			"begin": "(\")",
+			"end": "(\")"
 		},
 		"paren-expression": {
 			"begin": "\\(",
