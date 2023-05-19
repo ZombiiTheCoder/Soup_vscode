@@ -41,7 +41,7 @@
 			},
 			{
 				"name":"keyword.other",
-				"match": "\\b(def|mal)\\b"
+				"match": "\\b(def|mal|true|false|undefined|null)\\b"
 			}]
 		},
 		"strings": {
