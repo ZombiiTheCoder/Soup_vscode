@@ -37,11 +37,11 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.soup",
-				"match": "\\b(Soup|soup|if|else|while|for|return)\\b"
+				"match": "\\b(fn|func|function|if|else|while|for|return|ret)\\b"
 			},
 			{
 				"name":"keyword.other",
-				"match": "\\b(def|mal|true|false|undefined|null)\\b"
+				"match": "\\b(val|var|true|false|undefined|null)\\b"
 			}]
 		},
 		"strings": {
