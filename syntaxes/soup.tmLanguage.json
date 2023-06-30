@@ -3,22 +3,16 @@
 	"name": "Soup",
 	"patterns": [
 		{
-			"include": "#comments"
-		},
-		{
-			"include":"#comments_inline"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#operators"
-		},
-		{
 			"include": "#numbers"
 		},
 		{
-			"include": "#functions"
+			"include": "#comments"
+		},
+		{
+			"include": "#err"
+		},
+		{
+			"include":"#comments_inline"
 		},
 		{
 			"include": "#strings"
@@ -31,21 +25,48 @@
 		},
 		{
 			"include": "#paren-expression"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#variable"
 		}
 	],
 	"repository": {
+		"types":{
+			"patterns": [
+				{
+					"name":"constant.character",
+					"match": "\\b(int|string|float|byte|char|binary|null|undefined|boolean)\\b"
+				}
+			  ]
+		},
+		"variable":{
+			"patterns": [
+				{
+					"name":"variable",
+					"match": "[[:alnum:]_]"
+				}
+			  ]
+		},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.soup",
-				"match": "\\b(fn|if|else|while|for|ret)\\b"
+				"match": "\\b(module|fn|if|else|while|for|ret)\\b"
 			},
 			{
 				"name":"keyword.other",
-				"match": "\\b(const|var|true|false|undefined|null|use|Use)\\b"
-			},
-			{
-				"name":"constant.character",
-				"match": "\\b(int|string|float|byte|char|binary)\\b"
+				"match": "\\b(const|var|true|false|use|Use)\\b"
 			}]
 		},
 		"strings": {
@@ -107,14 +128,18 @@
 		  "patterns": [
 			{
 				"name": "support.function",
-				"match": "\\b([^0-9=+-_~`!@#$%&*()\"']|[a-zA-Z_])+[a-zA-Z0-9_]+([(]|[[:space:](])"
-			},
-			{
-				"name": "support.variable",
-				"match": "\\b([^0-9=+-_~`!@#$%&*()\"']|[a-zA-Z_])+[a-zA-Z0-9_]*\\b"
+				"match": "[a-zA-Z0-9_]+[(]"
 			}
 		  ]
 	},
+	"err": {
+		"patterns": [
+		  {
+			  "name": "invalid.deprecated",
+			  "match": "[^\n\r\b][0-9][[:alnum:]_]"
+		  }
+		]
+  	},
 	"operators":{
 		"patterns": [
 			{
@@ -127,7 +152,7 @@
 				},
 				{
 				  "name": "keyword.operator.logical",
-				  "match": "[!&|]"
+				  "match": "[!&|.]"
 				}
 			  ]
 		},

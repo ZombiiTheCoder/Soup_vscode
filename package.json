@@ -2,7 +2,7 @@
   "name": "soup-syntax-highlighting",
   "displayName": "Soup Syntax Highlighting",
   "description": "This Highlights sytax for the Soup Programming Language",
-  "version": "0.0.6",
+  "version": "0.0.69",
   "publisher": "Zomboider",
   "engines": {
     "vscode": "^1.78.0"
