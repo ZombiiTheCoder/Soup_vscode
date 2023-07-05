@@ -136,7 +136,7 @@
 		"patterns": [
 		  {
 			  "name": "invalid.deprecated",
-			  "match": "[^\n\r\b][0-9][[:alnum:]_]"
+			  "match": "[^\n\r\b][0-9][[:alpha:]_]"
 		  }
 		]
   	},
